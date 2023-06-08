@@ -8,7 +8,7 @@ import Subtotal from "../Components/Subtotal";
 
 export default function page() {
   const basket = useSelector((state: any) => state.basket.basket);
-  // console.log("basket", basket)  
+  // console.log("basket", basket)..
   return (
     <>
       <Header />
