@@ -94,7 +94,7 @@ export default function Page() {
           </button>
         </form>
         <p className="text-[12px] mt-[15px]">
-          By Sign-in you agree to Amazon's Conditions of Use & Sale. Please see
+          By Sign-up you agree to Amazon's Conditions of Use & Sale. Please see
           our Privacy Notice, our Cookies Notice and our internet-Based Ads
           Notice.
         </p>
