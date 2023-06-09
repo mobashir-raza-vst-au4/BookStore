@@ -20,7 +20,7 @@ export default function SubTotal({ basket }: any) {
   const createOrder = async () => {
     try {
       // Make the API request to create the order
-      const response = await axios.post("http://localhost:8005/api/order", {
+      const response = await axios.post("https://backend-gamma-api.vercel.app/api/order", {
         items: basket.map((item: any) => item),
         userId: user._id,
       });

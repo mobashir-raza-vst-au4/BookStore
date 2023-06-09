@@ -26,7 +26,7 @@ export default function page() {
       // Perform form submission logic here using formData
       console.log(formData);
       // Make a POST request to the registration API
-      const response = await axios.post('http://localhost:8005/api/register', formData);
+      const response = await axios.post('https://backend-gamma-api.vercel.app/api/register', formData);
       console.log(response.data); // Assuming the response contains the registered user data
 
       // Reset form after submission

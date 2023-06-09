@@ -20,7 +20,7 @@ export default function Home() {
     //call an API to get all books.
     // Fetch all books from the API
     axios
-      .get("http://localhost:8005/api/books")
+      .get("https://backend-gamma-api.vercel.app/api/books")
       .then((response) => {
         setBooks(response.data);
       })
