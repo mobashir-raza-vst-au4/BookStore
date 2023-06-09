@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import CheckoutProduct from "../Components/CheckoutProduct";
 import Subtotal from "../Components/Subtotal";
 
-export default function page() {
+export default function Page() {
   const basket = useSelector((state: any) => state.basket.basket);
   // console.log("basket", basket)..
   return (

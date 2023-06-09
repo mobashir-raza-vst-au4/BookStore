@@ -6,7 +6,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setUser } from "./../GlobalRedux/Features/user/userSlice";
 
-export default function page() {
+export default function Page() {
   const dispatch = useDispatch();
 
   const router = useRouter();

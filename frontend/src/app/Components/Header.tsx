@@ -7,13 +7,13 @@ import SavingsIcon from "@mui/icons-material/Savings";
 import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
 
-export default function header() {
+export default function Header() {
   const basket = useSelector((state: any) => state.basket.basket);
   const userFromRedux = useSelector((state: any) => state.user.user);
   const router = useRouter();
   // Check if localStorage is defined before accessing it
   const userFromLocal = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem("user")) : null;
-  
+
   console.log("local", userFromLocal);
   const [user, setUser] = useState(userFromLocal);
 
