@@ -11,7 +11,7 @@ export default function BookCard({ book }: any) {
     dispatch(addToBasket(item))
   };
   return (
-    <div className="flex flex-col items-center justify-end max-h-[400px] min-w-[100px] m-[10px] p-[20px] w-full bg-gray-50 border z-1">
+    <div key={book._id} className="flex flex-col items-center justify-end max-h-[400px] min-w-[100px] m-[10px] p-[20px] w-full bg-gray-50 border z-1">
       <img
         className="max-w-[100px] w-full object-contain mb-[15px]"
         src={book.coverImage}
@@ -24,11 +24,9 @@ export default function BookCard({ book }: any) {
           <strong>{book.price}</strong>
         </p>
         <div className="flex">
-          {Array(5)
-            .fill()
-            .map((_, index) => {
-              return <p key={index}>⭐</p>;
-            })}
+          {Array.from({ length: 5 }).map((_, index) => (
+            <span key={index}>⭐</span>
+          ))}
         </div>
       </div>
       <button

@@ -10,7 +10,7 @@ export default function CheckoutProduct({ item }: any) {
     dispatch(removeFromBasket(id));
   };
   return (
-    <div className="flex my-5">
+    <div key={item._id} className="flex my-5">
       <img
         className="object-contain w-[180px] h-[180px]"
         src={item.coverImage}
@@ -23,11 +23,9 @@ export default function CheckoutProduct({ item }: any) {
           <strong>{item.price}</strong>
         </p>
         <div className="flex">
-          {Array(5)
-            .fill()
-            .map((_, index) => {
-              return <p key={index}>⭐</p>;
-            })}
+          {Array.from({ length: 5 }).map((_, index) => (
+            <span key={index}>⭐</span>
+          ))}
         </div>
         <button
           className="bg-[#f0c14b] border border-[#a88734] mt-[10px] px-2"

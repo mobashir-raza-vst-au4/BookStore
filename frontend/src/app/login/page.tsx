@@ -44,7 +44,7 @@ export default function Page() {
       localStorage.setItem("user", JSON.stringify(response.data.user))
       dispatch(setUser(response.data.user))
       router.push("/");
-    } catch (error) {
+    } catch (error: any) {
       console.error(error);
 
       // Display error message

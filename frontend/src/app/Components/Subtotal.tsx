@@ -11,12 +11,13 @@ export default function SubTotal({ basket }: any) {
   const dispatch = useDispatch()
   const router = useRouter();
 
-  console.log("what--", basket);
+  // console.log("what--", basket);
   const getTotal = `${basket.reduce((amount: any, item: any) => {
     // console.log(amount, item)
     return amount + item.price;
   }, 0)}`;
-  const user = JSON.parse(localStorage.getItem("user"));
+  const userString = localStorage.getItem("user");
+  const user = userString ? JSON.parse(userString) : null;
   const createOrder = async () => {
     try {
       // Make the API request to create the order
@@ -35,10 +36,10 @@ export default function SubTotal({ basket }: any) {
         router.push('/')
       }
 
-    } catch (error) {
+    } catch (error: any) {
       // Handle any errors that occur during the API request
       console.error(error);
-      alert(error.response.data.message || error.message)
+      alert(error?.response?.data.message || error?.message)
     }
   };
   return (

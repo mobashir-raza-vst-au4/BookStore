@@ -33,11 +33,11 @@ export default function Page() {
               <h2 className="checkout__title">Your Shopping Cart</h2>
               {/* List out all of the Checkout Products */}
               {basket &&
-                basket.map((item, index) => {
-                  console.log("item each>>", item);
+                basket.map((item: any) => {
+                  // console.log("item each>>", item);
                   return (
                     // import CheckoutProduct
-                    <CheckoutProduct item={item} />
+                    <CheckoutProduct key={item._id} item={item} />
                   );
                 })}
             </div>
@@ -45,7 +45,7 @@ export default function Page() {
         </div>
         {basket.length > 0 && (
           <div className="checkout__right">
-            <Subtotal basket={basket}/>
+            <Subtotal basket={basket} />
           </div>
         )}
       </div>

@@ -11,12 +11,12 @@ export const basketSlice = createSlice({
   name: "basket",
   initialState,
   reducers: {
-    addToBasket: (state, action) => {
+    addToBasket: (state: any, action: any) => {
       console.log("action", action);
       state.basket.push(action.payload);
     },
-    removeFromBasket: (state, action) => {
-      const index = state.basket.findIndex((basketItem) => {
+    removeFromBasket: (state: any, action: any) => {
+      const index = state.basket.findIndex((basketItem: any) => {
         return basketItem._id === action.payload;
       });
       // console.log(index)

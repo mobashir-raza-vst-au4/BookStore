@@ -12,10 +12,10 @@ export default function Header() {
   const userFromRedux = useSelector((state: any) => state.user.user);
   const router = useRouter();
   // Check if localStorage is defined before accessing it
-  const userFromLocal = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem("user")) : null;
+  // const userFromLocal: string | null = typeof window !== 'undefined' ? JSON.parse(localStorage?.getItem("user")) : null;
 
-  console.log("local", userFromLocal);
-  const [user, setUser] = useState(userFromLocal);
+  // console.log("local", userFromLocal);
+  const [user, setUser]:any = useState(null);
 
   const handleLogout = () => {
     if (!user) {
@@ -28,9 +28,13 @@ export default function Header() {
 
   useEffect(() => {
     console.log("jdjdj", userFromRedux);
-    const userFromLocal = JSON.parse(localStorage.getItem("user"));
-    setUser(userFromLocal);
+    if (typeof window !== 'undefined') {
+      const userFromLocal = localStorage.getItem("user");
+      const parsedUser = userFromLocal ? JSON.parse(userFromLocal) : null
+      setUser(parsedUser);
+    }
   }, [userFromRedux]);
+
   return (
     <nav className="bg-[#131921] flex items-center sticky top-0 z-100">
       {/* logo on the left */}
@@ -56,7 +60,7 @@ export default function Header() {
           <div className="flex flex-col mx-[10px]">
             <span className="text-[10px]">
               Hello,
-              {user?.username}
+              {user ? user.username : "Guest"}
             </span>
             <span className="text-[13px] font-extrabold">
               {user ? "Sign Out" : "Sign In"}
@@ -75,7 +79,7 @@ export default function Header() {
           <div className="flex mx-[10px] items-center">
             <SavingsIcon />
             <span className="text-[13px] font-extrabold mx-[10px]">
-              {user?.points}
+              {user && user.points}
             </span>
           </div>
         </Link>

@@ -9,9 +9,9 @@ export default function Home() {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    console.log("run effect");
-    const isLoggedIn = JSON.parse(localStorage.getItem("token")); // Check if the user is logged in
-    console.log("isloggedin", isLoggedIn);
+    console.log("run effect", books);
+    const tokenFromLocalStorage = localStorage.getItem("token");
+    const isLoggedIn = tokenFromLocalStorage ? JSON.parse(tokenFromLocalStorage) : false; // Check if the user is logged in
     if (!isLoggedIn) {
       router.push("/login"); // Redirect to the login page if not logged in
       return;
@@ -37,8 +37,8 @@ export default function Home() {
           src="https://images-eu.ssl-images-amazon.com/images/G/02/digital/video/merch2016/Hero/Covid19/Generic/GWBleedingHero_ENG_COVIDUPDATE__XSite_1500x600_PV_en-GB._CB428684220_.jpg"
         />
         <div className="grid grid-cols-3 gap-4 z-1">
-          {books.map((book) => (
-            <BookCard key={book.id} book={book} />
+          {books.map((book: any) => (
+            <BookCard key={book?._id} book={book} />
           ))}
         </div>
       </div>

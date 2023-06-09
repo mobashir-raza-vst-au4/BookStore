@@ -36,7 +36,7 @@ export default function Page() {
         password: "",
       });
       router.push("/login");
-    } catch (error) {
+    } catch (error: any) {
       console.error(error);
 
       // Display error message
