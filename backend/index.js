@@ -2,7 +2,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const app = express();
-const port = 8005;
+const router = express.Router();
+
+const port = 3000;
 require('dotenv').config()
 
 // Middleware to parse JSON requests
@@ -24,10 +26,18 @@ db.once('open', () => {
   console.log('Database connected successfully');
 });
 
+
 //Configure routes
 app.use('/api', authRoutes);
 app.use('/api', booksRoutes);
 app.use('/api', ordersRoutes);
+
+router.get('/', function (req, res) {
+  return res.status(200).json({ message: 'working' });
+});
+
+// Mount the router on the /api path prefix
+app.use('/', router);
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
