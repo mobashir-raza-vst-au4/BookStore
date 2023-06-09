@@ -49,7 +49,8 @@ export default function Page() {
 
       // Display error message
       if (error.response) {
-        console.log(error.response.data); // Assuming the error response contains the error message
+        console.log(error.response.data); 
+        alert(error.response.data.message)
       } else {
         console.log("An error occurred during login.");
       }

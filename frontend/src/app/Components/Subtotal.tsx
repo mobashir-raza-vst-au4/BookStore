@@ -33,6 +33,7 @@ export default function SubTotal({ basket }: any) {
         localStorage.setItem('user', JSON.stringify(response.data.user))
         dispatch(setUser())
         dispatch(clearBasket())
+        alert("Order Placed !!")
         router.push('/')
       }
 
