@@ -36,7 +36,7 @@ export default function Header() {
   }, [userFromRedux]);
 
   return (
-    <nav className="bg-[#131921] flex items-center sticky top-0 z-100">
+    <nav className="bg-[#131921] flex items-center justify-between sticky top-0 z-100">
       {/* logo on the left */}
       <Link href="/">
         <img
@@ -46,7 +46,7 @@ export default function Header() {
       </Link>
 
       {/* search box */}
-      <div className="flex flex-1">
+      <div className="sm:flex flex-1 hidden">
         <input type="text" className="h-[24px] p-[10px] w-full border-none" />
         <SearchIcon className="p-[5px] bg-[#febd69] " />
       </div>

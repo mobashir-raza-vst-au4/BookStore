@@ -18,7 +18,7 @@ export default function BookCard({ book }: any) {
         alt=""
       />
       <div className="h-[100px] mb-[15px]">
-        <p>{book.title}</p>
+        <p className="">{book.title}</p>
         <p className="mt-[5px]">
           <small>$</small>
           <strong>{book.price}</strong>
